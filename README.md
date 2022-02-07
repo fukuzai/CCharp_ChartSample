@@ -1,8 +1,9 @@
-# TapeInspector C# HALCON
+# 
+CCharp_ChartSample
 https://github.com/fukuzai/CCharp_ChartSample
 
 # 概要
-C#のchartを使ってリアルタイムにグラフを描画する
+C#の「chart」を使ってリアルタイムにグラフを描画する
 
 こちらを参考にした
 http://nanoappli.com/blog/archives/2584
