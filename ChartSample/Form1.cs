@@ -23,6 +23,10 @@ namespace ChartSample
         PerformanceCounter pc = new PerformanceCounter("Processor", "% Processor Time", "_Total", true);
 
 
+        int count = 0;
+        int[] array = new int[10];
+
+
         public Form1()
         {
             InitializeComponent();
@@ -33,6 +37,8 @@ namespace ChartSample
             // 1秒周期でチャートを再描画
             timer1.Interval = 1000;
             timer1.Enabled = true;
+
+
         }
 
         private void initChart(Chart chart)
@@ -48,7 +54,7 @@ namespace ChartSample
             chart.ChartAreas[0].InnerPlotPosition.Height = 90;  // 90%(横軸のメモリラベル印字分の余裕を設ける)
             chart.ChartAreas[0].InnerPlotPosition.X = 8;
             chart.ChartAreas[0].InnerPlotPosition.Y = 0;
-
+            
 
             // X,Y軸情報のセット関数を定義
             Action<Axis> setAxis = (axisInfo) => {
@@ -115,6 +121,52 @@ namespace ChartSample
             int value = (int)pc.NextValue();
             countHistory.Enqueue(value);
 
+
+            //ヒストグラム用の配列を生成
+            
+            if(value < 10)
+            {
+                array[0] += 1;
+            }
+            else if(value < 20)
+            {
+                array[1] += 1;
+            }
+            else if(value < 30)
+            {
+                array[2] += 1;
+            }
+            else if(value < 40)
+            {
+                array[3] += 1;
+            }
+            else if(value < 50)
+            {
+                array[4] += 1;
+            }
+            else if(value < 60)
+            {
+                array[5] += 1;
+            }
+            else if(value < 70)
+            {
+                array[6] += 1;
+            }
+            else if(value < 80)
+            {
+                array[7] = +1;
+            }else if(value < 90)
+            {
+                array[8] += 1;
+            }
+            else if(value <=100)
+            {
+                array[9] += 1;
+            }
+            
+            //Console.Write()
+
+            count = count + 1;
             //------------------------------------------------
             // 履歴の最大数を超えていたら、古いものを削除する
             //------------------------------------------------
