@@ -83,7 +83,8 @@ namespace ChartSample
             chart.AntiAliasing = AntiAliasingStyles.None;
 
             // 折れ線グラフとして表示
-            chart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            chart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column; //縦棒グラフで表示
+            //chart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             // 線の色を指定
             chart.Series[0].Color = ColorTranslator.FromHtml("#00FF00");
 
@@ -109,7 +110,8 @@ namespace ChartSample
             {
 
                 // データをチャートに追加
-                chart.Series[0].Points.Add(new DataPoint(0, value));
+                //chart.Series[0].Points.Add(new DataPoint(0, value));
+                chart.Series[0].Points.DataBindY(array); //ヒストグラム用のarrayを割り当て
             }
         }
 
